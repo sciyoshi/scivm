@@ -47,7 +47,9 @@ alias pipup="pip install -e ."
 alias ntpup="sudo ntpdate -u ntp.ubuntu.com"
 #eval "$(hub alias -s)"
 
-export WORKON_HOME="${HOME}/.venvs"
+if [ -z ${WORKON_HOME+x} ]; then
+  export WORKON_HOME="${HOME}/.venvs"
+fi
 
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
   . /usr/local/bin/virtualenvwrapper.sh

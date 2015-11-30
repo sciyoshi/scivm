@@ -1,0 +1,4 @@
+salt-call:
+  config_dir: config
+  file_root: .
+  pillar_root: pillar

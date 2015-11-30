@@ -1,4 +1,4 @@
 ssh-auth-key:
   ssh_auth.present:
-    - user: {{ pillar.user }}
+    - user: {{ pillar.username }}
     - source: salt://ssh/key.pub

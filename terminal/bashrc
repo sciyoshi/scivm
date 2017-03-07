@@ -2,8 +2,6 @@ alias l="ls -lh --color=auto --group-directories-first"
 alias la="ls -lha --color=auto --group-directories-first"
 alias ll="ls -lh --color=auto --group-directories-first"
 
-alias rmpyc="find . -name \*.pyc -exec rm \{\} \;"
-
 GREEN='\e[1;32m'
 CYAN='\e[1;36m'
 BLUE='\e[1;34m'
@@ -28,30 +26,14 @@ export EDITOR=nano
 
 export GPG_TTY=$(tty)
 
-if [ -f "${HOME}/.gpg-agent-info" ]; then
-  . "${HOME}/.gpg-agent-info"
-  export GPG_AGENT_INFO
-fi
-
-if hash gpg-agent 2> /dev/null; then
-  gpg-agent &> /dev/null
-fi
-
-if [ "$?" -ne "0" ]; then
-  eval $(gpg-agent --daemon \
-    --write-env-file "${HOME}/.gpg-agent-info")
-fi
+export PATH="${HOME}/.local/bin:${PATH}"
 
 alias sc="sudo supervisorctl"
 alias pipup="pip install -e ."
 alias pipupu="pip install -e . --upgrade"
 alias ntpup="sudo ntpdate -u ntp.ubuntu.com"
-#eval "$(hub alias -s)"
+alias rmpyc="find . -name \*.pyc -exec rm \{\} \;"
 
 if [ -z ${WORKON_HOME+x} ]; then
-  export WORKON_HOME="${HOME}/.venvs"
-fi
-
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-  . /usr/local/bin/virtualenvwrapper.sh
+  export WORKON_HOME="${HOME}/.local/venvs"
 fi

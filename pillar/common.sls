@@ -1,3 +1,3 @@
 username: sciyoshi
 fullname: Samuel Cormier-Iijima
-email: sciyoshi@gmail.com
+email: samuel@cormier-iijima.com

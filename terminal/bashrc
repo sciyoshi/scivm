@@ -37,3 +37,5 @@ alias rmpyc="find . -name \*.pyc -exec rm \{\} \;"
 if [ -z ${WORKON_HOME+x} ]; then
   export WORKON_HOME="${HOME}/.local/venvs"
 fi
+
+eval "`pip completion --bash`"

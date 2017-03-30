@@ -3,6 +3,7 @@ base:
     - dev
     - dev.git
     - dev.gpg
-    - terminal
-    - ssh
+    - docker
     - node
+    - ssh
+    - terminal

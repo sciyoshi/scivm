@@ -1,5 +1,6 @@
 base:
   '*':
+    - core
     - dev
     - dev.git
     - dev.gpg

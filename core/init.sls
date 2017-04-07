@@ -1,5 +1,8 @@
 update:
-  pkg.uptodate
+  pkg.uptodate:
+    - refresh: true
+    - kwargs:
+        dist_upgrade: true
 
 autoremove:
   module.run:

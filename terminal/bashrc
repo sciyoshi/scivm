@@ -20,7 +20,15 @@ function git_branch {
   echo " ($branch)"
 }
 
-export PS1="\[$GREEN\]\u\[$RESET\]@\[$CYAN\]\h\[$RESET\] \[$BLUE\]\w\[$RESET\]\[$YELLOW\]\$(git_branch) \[$GREEN\]λ\[$RESET\] "
+function set_bash_prompt {
+  if [ -n "$VIRTUAL_ENV" ]; then
+    PS1="[\[$YELLOW\]$(basename $VIRTUAL_ENV)\[$RESET\]] \[$GREEN\]\u\[$RESET\]@\[$CYAN\]\h\[$RESET\] \[$BLUE\]\w\[$RESET\]\[$YELLOW\]\$(git_branch) \[$GREEN\]λ\[$RESET\] "
+  else
+    PS1="\[$GREEN\]\u\[$RESET\]@\[$CYAN\]\h\[$RESET\] \[$BLUE\]\w\[$RESET\]\[$YELLOW\]\$(git_branch) \[$GREEN\]λ\[$RESET\] "
+  fi
+}
+
+export PROMPT_COMMAND=set_bash_prompt
 
 export EDITOR=nano
 
@@ -28,7 +36,6 @@ export GPG_TTY=$(tty)
 
 export PATH="${HOME}/.local/bin:${PATH}"
 
-alias sc="sudo supervisorctl"
 alias pipup="pip install -e ."
 alias pipupu="pip install -e . --upgrade"
 alias ntpup="sudo ntpdate -u ntp.ubuntu.com"
@@ -39,3 +46,5 @@ if [ -z ${WORKON_HOME+x} ]; then
 fi
 
 eval "`pip completion --bash`"
+
+source $(dirname `pew shell_config`)/complete.bash

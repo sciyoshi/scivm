@@ -14,7 +14,7 @@ curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | pyt
 Now install saltstack:
 
 ```
-pipsi install --python python --system-site-packages salt
+pipsi install --python python2.7 --system-site-packages salt
 ```
 
 To provision, from the checkout directory, run:

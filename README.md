@@ -1,24 +1,18 @@
 # scivm
 
-This repository contains a set of [saltstack](https://saltstack.com/) state files for setting up my virtual machines.
+This repository contains a set of [SaltStack](https://saltstack.com/) state files for setting up my virtual machines.
 
 ## Setup
 
-First, install [pipsi](https://github.com/mitsuhiko/pipsi):
+First, install SaltStack, ideally with [pipsi](https://github.com/mitsuhiko/pipsi):
 
 ```shell
-curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python3
-~/.local/venvs/pipsi/bin/pip install --upgrade git+https://github.com/mitsuhiko/pipsi
+pipsi install salt
 ```
 
-Now install saltstack:
-
-```
-pipsi install --python python2.7 --system-site-packages salt
-```
-
+Update `config/roster` with the hostname and SSH information of the hosts to configure.
 To provision, from the checkout directory, run:
 
 ```
-sudo ~/.local/bin/salt-call --local state.highstate
+salt-ssh '*' state.highstate
 ```

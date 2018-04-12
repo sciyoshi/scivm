@@ -1,6 +1,21 @@
-alias l="ls -lh --color=auto --group-directories-first"
-alias la="ls -lha --color=auto --group-directories-first"
-alias ll="ls -lh --color=auto --group-directories-first"
+export HISTSIZE=
+export HISTFILESIZE=
+export HISTCONTROL=ignoreboth
+export HISTIGNORE='ls:l:ll:la:[bf]g:exit:pwd:clear:mount:umount:cd *'
+
+export EDITOR=nano
+export GPG_TTY=$(tty)
+export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${PATH}"
+
+if command -v exa >/dev/null; then
+  LS=exa
+else
+  LS=ls
+fi
+
+alias l="$LS -l --git --group-directories-first"
+alias la="$LS -la --git --group-directories-first"
+alias ll="$LS -l --git --group-directories-first"
 
 GREEN='\e[1;32m'
 CYAN='\e[1;36m'
@@ -30,12 +45,6 @@ function set_bash_prompt {
 
 export PROMPT_COMMAND=set_bash_prompt
 
-export EDITOR=nano
-
-export GPG_TTY=$(tty)
-
-export PATH="${HOME}/.local/bin:${PATH}"
-
 alias pipup="pip install -e ."
 alias pipupu="pip install -e . --upgrade"
 alias ntpup="sudo ntpdate -u ntp.ubuntu.com"
@@ -45,6 +54,10 @@ if [ -z ${WORKON_HOME+x} ]; then
   export WORKON_HOME="${HOME}/.local/venvs"
 fi
 
-eval "`pip completion --bash`"
+if command -v pip >/dev/null; then
+  eval "`pip completion --bash`"
+fi
 
-source $(dirname `pew shell_config`)/complete.bash
+if command -v pew >/dev/null; then
+  source $(dirname `pew shell_config`)/complete.bash
+fi

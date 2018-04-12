@@ -1,0 +1,11 @@
+root_dir: ./
+pki_dir: config/pki
+cachedir: .cache
+
+file_roots:
+  base:
+    - .
+
+pillar_roots:
+  base:
+    - pillar

@@ -1,0 +1,6 @@
+# Use this file to configure the Salt roster.
+#
+# nodename:
+#   host: hostname.example.com
+#   user: admin
+#   sudo: true

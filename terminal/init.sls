@@ -14,11 +14,13 @@ byobu-tmux:
   file.managed:
     - name: /home/{{ pillar.username }}/.byobu/.tmux.conf
     - source: salt://terminal/tmux.conf
+    - user: {{ pillar.username }}
 
 byobu-keybindings:
   file.managed:
     - name: /home/{{ pillar.username }}/.byobu/keybindings.tmux
     - source: salt://terminal/keybindings.tmux
+    - user: {{ pillar.username }}
 
 bashrc-additions:
   file.blockreplace:

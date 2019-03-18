@@ -1,0 +1,33 @@
+[user]
+	email = samuel@cormier-iijima.com
+	name = Samuel Cormier-Iijima
+	signingkey = FC3854F2
+[rebase]
+	autoStash = true
+[merge]
+	conflictStyle = diff3
+[alias]
+	a = add
+	b = branch
+	bd = branch -D
+	c = commit
+	ca = commit -a
+	cam = commit -a --amend
+	cm = commit --amend
+	co = checkout
+	cp = cherry-pick
+	d = diff
+	f = fetch --all --prune --tags
+	fp = push --force
+	l = pull --rebase
+	p = push
+	po = push origin
+	puo = push --set-upstream origin
+	r = reset
+	rb = rebase
+	rbi = rebase -i
+	rh = reset --hard
+	rm = rm
+	s = status
+	st = stash
+	stp = stash pop

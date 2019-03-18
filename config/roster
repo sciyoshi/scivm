@@ -4,3 +4,9 @@
 #   host: hostname.example.com
 #   user: admin
 #   sudo: true
+
+alpha:
+  host: 144.217.166.173
+  user: sciyoshi
+  sudo: true
+  port: 22

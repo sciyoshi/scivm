@@ -74,6 +74,9 @@ defaults write com.apple.dashboard mcx-disabled -boolean TRUE
 printf "System - Avoid creating .DS_Store files on network volumes\n"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
+printf "System - Show battery percentage in menubar\n"
+defaults write com.apple.menuextra.battery ShowPercent YES
+
 printf "Trackpad - Map bottom right corner to right-click\n"
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
